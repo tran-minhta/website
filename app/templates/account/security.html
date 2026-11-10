@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block title %}Bảo mật tài khoản - debugs.click{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                <div class="bg-gradient-primary p-4 d-flex align-items-center justify-content-center">
+                    <div class="bg-white rounded-3 p-4 text-center">
+                        <div class="w-24 h-24 mx-auto bg-success bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3">
+                            <i class="fas fa-shield-alt text-success fs-1"></i>
+                        </div>
+                        <h4 class="text-dark mb-2">Bảo mật tài khoản</h4>
+                        <p class="text-muted mb-0">Quản lý và tăng cường bảo mật cho tài khoản của bạn</p>
+                    </div>
+                </div>
+
+                <div class="p-4">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="security-box bg-white rounded-3 p-4 border-start border-4 border-primary">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="w-40 h-40 bg-primary bg-opacity-10 rounded-circle flex-shrink-0">
+                                        <i class="fas fa-key text-primary fs-1"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-1">Đổi mật khẩu</h6>
+                                        <p class="text-muted small mb-0">
+                                            Cập nhật mật khẩu hiện tại để bảo mật tài khoản.
+                                            Yêu cầu 8+ ký tự với chuỗi bảo mật.
+                                        </p>
+                                    </div>
+                                </div>
+                                <a href="{{ url_for('account.change_password') }}" class="btn btn-sm btn-outline-primary mt-2 w-100">
+                                    <i class="fas fa-edit me-1"></i>Đổi ngay
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="security-box bg-white rounded-3 p-4 border-start border-4 border-success">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="w-40 h-40 bg-success bg-opacity-10 rounded-circle flex-shrink-0">
+                                        <i class="fas fa-envelope text-success fs-1"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-1">Đổi email</h6>
+                                        <p class="text-muted small mb-0">
+                                            Cập nhật địa chỉ email để bảo mật kết nối tài khoản.
+                                        </p>
+                                    </div>
+                                </div>
+                                <a href="{{ url_for('account.change_email') }}" class="btn btn-sm btn-outline-success mt-2 w-100">
+                                    <i class="fas fa-edit me-1"></i>Đổi ngay
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <h6 class="text-primary mb-3">
+                            <i class="fas fa-lock me-2"></i>Bảo mật thông minh
+                        </h6>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="brief-box bg-white rounded-3 p-3 border border-secondary-subtle">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <i class="fas fa-exclamation-triangle text-warning fs-4"></i>
+                                        <div>
+                                            <h6 class="fw-semibold mb-0">Khóa tài khoản</h6>
+                                            <p class="text-muted small mb-0">
+                                                Sau 5 lần đăng nhập sai, tài khoản sẽ bị khóa 15 phút.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="brief-box bg-white rounded-3 p-3 border border-secondary-subtle">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <i class="fas fa-clock text-info fs-4"></i>
+                                        <div>
+                                            <h6 class="fw-semibold mb-0">Thời gian phiên</h6>
+                                            <p class="text-muted small mb-0">
+                                                Phiên đăng nhập tự động hết hạn sau 30 phút.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .security-box, .brief-box {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .security-box:hover, .brief-box:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+</style>
+{% endblock %}
